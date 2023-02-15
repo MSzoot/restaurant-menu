@@ -13,7 +13,7 @@ document.addEventListener('click', function(e){
 })
 
 
-// add item to basket array function
+// add item to basket array 
 
 let addItem = (id) => {
     basket.push(menuArray[id])
@@ -22,7 +22,7 @@ let addItem = (id) => {
 }
 
 
-// remove item from basket function 
+// remove item from basket 
 
 let removeItem = (RemoveId) => {
     const indexToRemove = basket.findIndex(obj => obj.id == RemoveId);
@@ -84,6 +84,8 @@ return basketFeed
 
 
 
+
+// generate total html and calculate discounts
 
 let getTotalFeed = () =>{
 
