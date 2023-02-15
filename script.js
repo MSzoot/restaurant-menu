@@ -121,7 +121,7 @@ let getTotalFeed = () =>{
       finalPrice = totalPrice
     }else if ( isMealDeal == true){
       finalPrice = Math.floor(totalPrice * 0.9 *100) / 100
-      discountInfoFeed = '<p class="text-sm  text-white bg-red-600 rounded-xl p-1 mr-4">10% off</p>'
+      discountInfoFeed = '<p class="text-sm  text-white bg-red-600 rounded-xl px-2 py-1 mr-4">10% off</p>'
     }
 
 // generate html feed for total
