@@ -72,14 +72,45 @@ return basketFeed
 let getTotalFeed = () =>{
   let totalFeed = '';
   let totalPrice = 0
+  let isMealDeal = false;
+  let foodOrdered = false;
+  let drinkOrdered = false; 
+
+
   if(basket.length > 0){
+  
+// check for meal deal
+
+  for ( let basketItem of basket){
+    if(basketItem.id == 0 || basketItem.id == 1){
+      foodOrdered = true
+    }else if (basketItem.id == 2){
+      drinkOrdered = true
+    }    
+  }
+
+  if (foodOrdered == true && drinkOrdered == true){
+    isMealDeal = !isMealDeal;
+  }
+ 
+
+// add html + calculate the price total + discout if meal deal
+
   for (let basketItem of basket){
-    totalPrice += basketItem.price ;
+    totalPrice += basketItem.price ; 
+
+    if ( isMealDeal == false){
     totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-10 border-t-2">
     <h1 class="text-2xl font-bold">Total :</h1>
     <p class="font-bold ml-auto text-2xl">£${totalPrice}</p>
-  </div>
-  `
+  </div>`}else {
+    
+    let totalPriceWithDiscount = Math.floor(totalPrice * 0.9 *100) / 100
+    totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-10 border-t-2">
+    <h1 class="text-2xl font-bold">Total :</h1>
+    <p class="font-bold ml-auto text-2xl">£${totalPriceWithDiscount}</p>
+  </div>`
+  } 
   }
 }
 return totalFeed;
