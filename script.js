@@ -1,6 +1,8 @@
 import { menuArray } from "./data.js";
 let basket = [];
 
+//global click event listener 
+
 document.addEventListener('click', function(e){
     if (e.target.id && e.target.id == 0 || e.target.id == 1 || e.target.id == 2){
         addItem(e.target.id)
@@ -11,6 +13,8 @@ document.addEventListener('click', function(e){
 })
 
 
+// add item to basket array function
+
 let addItem = (id) => {
     basket.push(menuArray[id])
     render();
@@ -18,12 +22,16 @@ let addItem = (id) => {
 }
 
 
+// remove item from basket function 
+
 let removeItem = (RemoveId) => {
     const indexToRemove = basket.findIndex(obj => obj.id == RemoveId);
     basket.splice(indexToRemove,1);   
     render();
 }
 
+
+// generate html feed for menu items
 
 let gethtmlFeed = () => {
   let htmlFeed = ''
@@ -52,6 +60,10 @@ let gethtmlFeed = () => {
   return htmlFeed
 }
 
+
+
+// genereate html feed for items in basket 
+
 let getBasketFeed = () => {
   let basketFeed = ''
   if(basket.length > 0){
@@ -69,52 +81,72 @@ return basketFeed
 }
 
 
+
+
+
+
 let getTotalFeed = () =>{
+
+  //set variables
+
   let totalFeed = '';
+  let discountInfoFeed = ''
   let totalPrice = 0
+  let finalPrice = 0
   let isMealDeal = false;
   let foodOrdered = false;
   let drinkOrdered = false; 
 
+  //count total and check do we have food and drink in basket 
 
-  if(basket.length > 0){
-  
-// check for meal deal
-
-  for ( let basketItem of basket){
+  for (let basketItem of basket){
+    totalPrice += basketItem.price ;
     if(basketItem.id == 0 || basketItem.id == 1){
       foodOrdered = true
     }else if (basketItem.id == 2){
       drinkOrdered = true
-    }    
+    }
   }
+  // if food and drink are ordered make isMeal deal true
 
-  if (foodOrdered == true && drinkOrdered == true){
-    isMealDeal = !isMealDeal;
-  }
- 
-
-// add html + calculate the price total + discout if meal deal
-
-  for (let basketItem of basket){
-    totalPrice += basketItem.price ; 
+    if (foodOrdered == true && drinkOrdered == true){
+      isMealDeal = !isMealDeal;
+    }
+    
+  // calculate final price adding 10% discount when meal deal 
 
     if ( isMealDeal == false){
-    totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-10 border-t-2">
-    <h1 class="text-2xl font-bold">Total :</h1>
-    <p class="font-bold ml-auto text-2xl">£${totalPrice}</p>
-  </div>`}else {
-    
-    let totalPriceWithDiscount = Math.floor(totalPrice * 0.9 *100) / 100
-    totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-10 border-t-2">
-    <h1 class="text-2xl font-bold">Total :</h1>
-    <p class="font-bold ml-auto text-2xl">£${totalPriceWithDiscount}</p>
-  </div>`
-  } 
-  }
+      finalPrice = totalPrice
+    }else if ( isMealDeal == true){
+      finalPrice = Math.floor(totalPrice * 0.9 *100) / 100
+      discountInfoFeed = '<p class="text-sm  text-white bg-red-600 rounded-xl p-1 mr-4">10% off</p>'
+    }
+
+// generate html feed for total
+
+  if(basket.length > 0){
+
+      for (let basketItem of basket){
+        totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-10 border-t-2">
+        <h1 class="text-2xl font-bold mr-auto">Total :</h1>
+        ${discountInfoFeed}
+        <p class="font-bold text-2xl">£${finalPrice}</p>
+      </div><div class="flex justify-center">
+      <button class="bg-green-500 text-white w-10/12 h-10 text-center my-10">
+        Complete Order
+      </button>
+    </div>`
+      }
+
 }
 return totalFeed;
 }
+
+
+
+
+
+
 
 let render = () => {
     document.getElementById("menu").innerHTML = gethtmlFeed()
