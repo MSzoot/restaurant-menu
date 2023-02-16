@@ -1,4 +1,6 @@
 import { menuArray } from "./data.js";
+
+// basket array
 let basket = [];
 
 //global click event listener 
@@ -28,7 +30,7 @@ let addItem = (id) => {
 }
 
 
-// remove item from basket 
+// remove item from basket array
 
 let removeItem = (RemoveId) => {
     const indexToRemove = basket.findIndex(obj => obj.id == RemoveId);
@@ -43,7 +45,7 @@ let showModal = (modalId) => {
 }
 
 
-// get rate us modal after payment
+// show rate us modal after payment
 
 document.getElementById("form").addEventListener("submit", (evt) =>{
   evt.preventDefault();
@@ -147,7 +149,7 @@ let getTotalFeed = () =>{
       isMealDeal = !isMealDeal;
     }
     
-  // calculate final price adding 10% discount when meal deal 
+  // calculate final price adding 10% discount when meal deal , set up discount icon feed
 
     if ( isMealDeal == false){
       finalPrice = totalPrice
@@ -159,8 +161,6 @@ let getTotalFeed = () =>{
 // generate html feed for total
 
   if(basket.length > 0){
-
-      for (let basketItem of basket){
         totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-10 border-t-2">
         <h1 class="text-2xl font-bold mr-auto">Total :</h1>
         ${discountInfoFeed}
@@ -170,8 +170,6 @@ let getTotalFeed = () =>{
         Complete Order
       </button>
     </div>`
-      }
-
 }
 return totalFeed;
 }
@@ -190,7 +188,7 @@ let getThanksFeed = () => {
 }
 
 
-// stars rating 
+// stars rating logic
 
 let allStars = document.querySelectorAll("#star")
 console.log(allStars)
