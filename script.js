@@ -11,7 +11,10 @@ document.addEventListener('click', function(e){
         removeItem(e.target.dataset.delete)
     }else if(e.target.id == "payBtn"){
         showModal("pay")
-    }
+    }else if(e.target.id == "rateBtn"){
+      rateAndReset()
+
+  }
 })
 
 
@@ -46,6 +49,17 @@ document.getElementById("form").addEventListener("submit", (evt) =>{
   evt.preventDefault();
   showModal("rate");
 } )
+
+
+// reset function + thanks feed after rating 
+
+let rateAndReset = () => {
+  document.getElementById("menu").innerHTML = gethtmlFeed()
+  document.getElementById("menu").innerHTML += getThanksFeed()
+  basket = [];
+  document.getElementById("pay").classList.add("hidden")
+  document.getElementById("rate").classList.add("hidden")
+}
 
 
 
@@ -161,6 +175,20 @@ let getTotalFeed = () =>{
 }
 return totalFeed;
 }
+
+
+//get Thanks feed after rating
+
+let getThanksFeed = () => {
+  let name = document.getElementById("name").value
+  let thanksFeed = `<h1
+  class="text-center bg-green-200 text-green-900 rounded-sm mt-10 text-3xl px-6 py-5 rounded-md"
+>
+  Thanks ${name} , your order is on the way !
+</h1>`
+  return thanksFeed
+}
+
 
 // stars rating 
 
