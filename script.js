@@ -72,7 +72,7 @@ let gethtmlFeed = () => {
   
   for (let product of menuArray){
     htmlFeed += `<div
-    class="w-10/12 mx-auto flex items-center py-10 border-b border-slate-400-b"
+    class="w-10/12 mx-auto flex items-center py-10 border-b border-slate-500"
   >
     <span class="text-6xl w-2/12">${product.emoji}</span>
     <div class="flex w-10/12 justify-between items-center">
@@ -83,7 +83,7 @@ let gethtmlFeed = () => {
       </div>
       <button
         id ="${product.id}"
-        class="border border-slate-400 rounded-full px-5 py-3 text-2xl"
+        class="border border-slate-500 rounded-full px-5 py-3 text-2xl"
       >
         +
       </button>
@@ -161,7 +161,7 @@ let getTotalFeed = () =>{
 // generate html feed for total
 
   if(basket.length > 0){
-        totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-10 border-t-2">
+        totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-10 border-slate-500 border-t-2 ">
         <h1 class="text-2xl font-bold mr-auto">Total :</h1>
         ${discountInfoFeed}
         <p class="font-bold text-2xl">£${finalPrice}</p>
