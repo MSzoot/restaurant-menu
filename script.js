@@ -10,13 +10,10 @@ document.addEventListener('click', function(e){
     else if(e.target.dataset.delete){
         removeItem(e.target.dataset.delete)
     }else if(e.target.id == "payBtn"){
-        showModal()
+        showModal("pay")
     }
 })
 
-document.getElementById("form").addEventListener("submit", ()=>{
-    alert("works")
-})
 
 
 // add item to basket array 
@@ -36,9 +33,20 @@ let removeItem = (RemoveId) => {
     render();
 }
 
-let showModal = () => {
-  document.getElementById("modal").classList.remove("hidden")
+//show payment modal 
+
+let showModal = (modalId) => {
+  document.getElementById(modalId).classList.remove("hidden")
 }
+
+
+// get rate us modal after payment
+
+document.getElementById("form").addEventListener("submit", (evt) =>{
+  evt.preventDefault();
+  showModal("rate");
+} )
+
 
 
 // generate html feed for menu items
@@ -154,7 +162,10 @@ let getTotalFeed = () =>{
 return totalFeed;
 }
 
+// stars rating 
 
+let allStars = document.querySelectorAll("#star")
+console.log(allStars)
 
 
 

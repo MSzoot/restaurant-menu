@@ -22,8 +22,8 @@
 
     <!-- Payment modal  -->
     <div
-      id="modal"
-      class="fixed right-0 left-0 top-0 bottom-0 m-auto w-[600px] h-3/6 bg-white"
+      id="pay"
+      class="fixed right-0 left-0 top-0 bottom-0 m-auto w-[600px] h-[560px] bg-white hidden"
     >
       <h1 class="mt-20 mb-10 text-3xl text-center">Enter payment details</h1>
       <form id="form" class="grid grid-cols-1 place-items-center">
@@ -57,20 +57,23 @@
 
     <!-- Rate Us modal  -->
     <div
-      id="modal"
-      class="fixed right-0 left-0 top-0 bottom-0 m-auto w-[600px] h-3/6 bg-white"
+      id= "rate"
+      class="fixed right-0 left-0 top-0 bottom-0 m-auto w-[600px] h-[560px] bg-white text-center hidden"
     >
       <h1 class="mt-20 mb-5 text-3xl text-center">
         Thanks for shoping with us
       </h1>
       <h1 class="mb-10 text-xl text-center">Please rate your experience</h1>
       <div class="flex justify-center">
-        <button class="text-6xl">⭐️</button>
-        <button class="text-6xl">⭐️</button>
-        <button class="text-6xl">⭐️</button>
-        <button class="text-6xl">⭐️</button>
-        <button class="text-6xl">⭐️</button>
+        <button id="star" class="text-6xl text-orange-400">&#9734</button>
+        <button id="star" class="text-6xl text-orange-400">&#9734</button>
+        <button id="star" class="text-6xl text-orange-400">&#9734</button>
+        <button id="star" class="text-6xl text-orange-400">&#9734</button>
+        <button id="star" class="text-6xl text-orange-400">&#9734</button>
       </div>
+      <button id="rateBtn" class="bg-green-500 text-white w-10/12 h-10 text-center mt-20">
+        Rate Us 
+      </button>
     </div>
   </body>
   <script src="/script.js" type="module"></script>
