@@ -9,7 +9,13 @@ document.addEventListener('click', function(e){
     }
     else if(e.target.dataset.delete){
         removeItem(e.target.dataset.delete)
+    }else if(e.target.id == "payBtn"){
+        showModal()
     }
+})
+
+document.getElementById("form").addEventListener("submit", ()=>{
+    alert("works")
 })
 
 
@@ -28,6 +34,10 @@ let removeItem = (RemoveId) => {
     const indexToRemove = basket.findIndex(obj => obj.id == RemoveId);
     basket.splice(indexToRemove,1);   
     render();
+}
+
+let showModal = () => {
+  document.getElementById("modal").classList.remove("hidden")
 }
 
 
@@ -85,7 +95,7 @@ return basketFeed
 
 
 
-// generate total html and calculate discounts
+// generate total html feed and calculate discounts
 
 let getTotalFeed = () =>{
 
@@ -134,7 +144,7 @@ let getTotalFeed = () =>{
         ${discountInfoFeed}
         <p class="font-bold text-2xl">£${finalPrice}</p>
       </div><div class="flex justify-center">
-      <button class="bg-green-500 text-white w-10/12 h-10 text-center my-10">
+      <button id="payBtn" class="bg-green-500 text-white w-10/12 h-10 text-center my-10">
         Complete Order
       </button>
     </div>`

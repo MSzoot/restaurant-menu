@@ -7,7 +7,7 @@
     <link href="/dist/output.css" rel="stylesheet" />
     <title>Jimmi's Dinner</title>
   </head>
-  <body class="max-w-screen-sm mx-auto">
+  <body class="max-w-screen-sm mx-auto bg bg-slate-200">
     <header>
       <img src="img/header.jpg" alt="picture of burger" class="block mx-auto" />
     </header>
@@ -18,6 +18,59 @@
     </div>
     <div id="menu">
       <!-- Feed from JS goes Here -->
+    </div>
+
+    <!-- Payment modal  -->
+    <div
+      id="modal"
+      class="fixed right-0 left-0 top-0 bottom-0 m-auto w-[600px] h-3/6 bg-white"
+    >
+      <h1 class="mt-20 mb-10 text-3xl text-center">Enter payment details</h1>
+      <form id="form" class="grid grid-cols-1 place-items-center">
+        <input
+          type="text"
+          placeholder="Enter Your Name"
+          class="w-10/12 h-3/6 p-4 border border-solid border-slate-400"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Enter Card Number"
+          class="w-10/12 h-3/6 p-4 border border-solid border-slate-400"
+          required
+        />
+        <input
+          type="number"
+          placeholder="Enter CVV "
+          class="w-10/12 h-3/6 p-4 border border-solid border-slate-400"
+          required
+        />
+        <button
+          type="submit"
+          id="payBtn"
+          class="bg-green-500 text-white w-10/12 h-3/6 text-center mt-10 mb-20"
+        >
+          Pay Now !
+        </button>
+      </form>
+    </div>
+
+    <!-- Rate Us modal  -->
+    <div
+      id="modal"
+      class="fixed right-0 left-0 top-0 bottom-0 m-auto w-[600px] h-3/6 bg-white"
+    >
+      <h1 class="mt-20 mb-5 text-3xl text-center">
+        Thanks for shoping with us
+      </h1>
+      <h1 class="mb-10 text-xl text-center">Please rate your experience</h1>
+      <div class="flex justify-center">
+        <button class="text-6xl">⭐️</button>
+        <button class="text-6xl">⭐️</button>
+        <button class="text-6xl">⭐️</button>
+        <button class="text-6xl">⭐️</button>
+        <button class="text-6xl">⭐️</button>
+      </div>
     </div>
   </body>
   <script src="/script.js" type="module"></script>
