@@ -161,7 +161,7 @@ let getTotalFeed = () =>{
 // generate html feed for total
 
   if(basket.length > 0){
-        totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-10 border-slate-500 border-t-2 ">
+        totalFeed = `<div class="w-10/12 mx-auto flex items-center py-4 mt-5 border-slate-700 border-t-2 ">
         <h1 class="text-2xl font-bold mr-auto">Total :</h1>
         ${discountInfoFeed}
         <p class="font-bold text-2xl">£${finalPrice}</p>
