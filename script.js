@@ -133,7 +133,7 @@ let getTotalFeed = () =>{
   let foodOrdered = false;
   let drinkOrdered = false; 
 
-  //count total and check do we have food and drink in basket 
+  //count total and check do we have food and drink in the basket 
 
   for (let basketItem of basket){
     totalPrice += basketItem.price ;
@@ -188,14 +188,7 @@ let getThanksFeed = () => {
 }
 
 
-// stars rating logic
-
-let allStars = document.querySelectorAll("#star")
-console.log(allStars)
-
-
-
-
+// render HTML 
 
 let render = () => {
     document.getElementById("menu").innerHTML = gethtmlFeed()
