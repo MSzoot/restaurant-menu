@@ -180,7 +180,7 @@ return totalFeed;
 let getThanksFeed = () => {
   let name = document.getElementById("name").value
   let thanksFeed = `<h1
-  class="text-center bg-green-200 text-green-900 rounded-sm mt-10 text-3xl px-6 py-5 rounded-md"
+  class="text-center bg-white text-green-700v mt-10 text-3xl px-6 py-5 rounded-md"
 >
   Thanks ${name} , your order is on the way !
 </h1>`

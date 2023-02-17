@@ -7,7 +7,7 @@
     <link href="/dist/output.css" rel="stylesheet" />
     <title>Jimmi's Dinner</title>
   </head>
-  <body class="max-w-screen-sm mx-auto bg bg-slate-200">
+  <body class="max-w-screen-sm mx-auto bg-slate-100">
     <header>
       <img src="img/header.jpg" alt="picture of burger" class="block mx-auto" />
     </header>
@@ -59,18 +59,39 @@
     <!-- Rate Us modal  -->
     <div
       id="rate"
-      class="fixed right-0 left-0 top-0 bottom-0 m-auto w-[600px] h-[560px] bg-white text-center hidden"
+      class="fixed right-0 left-0 top-0 bottom-0 m-auto w-[600px] h-[560px] bg-white text-center"
     >
       <h1 class="mt-20 mb-5 text-3xl text-center">
         Thanks for shoping with us
       </h1>
       <h1 class="mb-10 text-xl text-center">Please rate your experience</h1>
-      <div class="flex justify-center">
-        <button id="star" class="text-6xl text-orange-400">&#9734;</button>
-        <button id="star" class="text-6xl text-orange-400">&#9734;</button>
-        <button id="star" class="text-6xl text-orange-400">&#9734;</button>
-        <button id="star" class="text-6xl text-orange-400">&#9734;</button>
-        <button id="star" class="text-6xl text-orange-400">&#9734;</button>
+      <div class="rating rating-lg">
+        <input
+          type="radio"
+          name="rating-8"
+          class="mask mask-star-2 bg-orange-400"
+        />
+        <input
+          type="radio"
+          name="rating-8"
+          class="mask mask-star-2 bg-orange-400"
+          checked
+        />
+        <input
+          type="radio"
+          name="rating-8"
+          class="mask mask-star-2 bg-orange-400"
+        />
+        <input
+          type="radio"
+          name="rating-8"
+          class="mask mask-star-2 bg-orange-400"
+        />
+        <input
+          type="radio"
+          name="rating-8"
+          class="mask mask-star-2 bg-orange-400"
+        />
       </div>
       <button
         id="rateBtn"
