@@ -61,6 +61,9 @@ let rateAndReset = () => {
   basket = [];
   document.getElementById("pay").classList.add("hidden")
   document.getElementById("rate").classList.add("hidden")
+  document.getElementById("name").value = ''
+  document.getElementById("cardNo").value = ''
+  document.getElementById('cvv').value = ''
 }
 
 
